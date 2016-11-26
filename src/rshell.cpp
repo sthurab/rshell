@@ -1,25 +1,26 @@
 #include <iostream>
 #include <string>
-#include <string.h>
-#include <vector>
-#include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h> 
+#include <unistd.h>
+#include <vector>
 
+#include "parser.cpp" //
 #include "rshell.h"
-#include "Trans_rshell.cpp"
+
 using namespace std;
 
 rshell::rshell() {
-	while(1) {
-		cout << getlogin() << "$ ";
-		getline(cin, user_input_str);
-		if(user_input_str == "exit") {
-			exit(0);
-		}
-		size_t symbol_position = user_input_str.find("#");
-		string user_input_str_wo_syms = user_input_str.substr(0,symbol_position);
-		Trans_rshell* shell = new Trans_rshell(user_input_str_wo_syms);
-		shell->interpret();
-	}
+    while(1) {
+        cout << getlogin() << "$ ";
+        getline(cin, input_inc);
+        if (input_inc == "exit") {
+            exit(0);
+        }
+        size_t location_sym = input_inc.find("#");
+        string input_wo_sym = input_inc.substr(0,location_sym);
+        parser* p = new parser(input_wo_sym);
+        p->interpret();
+    }
 }
