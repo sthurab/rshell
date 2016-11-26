@@ -1,14 +1,13 @@
 CC=g++
-CC_FLAGS=-Wall -ansi
-EXEC=rshell.out
-SOURCES=$(wildcard *.cpp)
-OBJECTS=$(SOURCES:.cpp=.o)
+CC_FLAGS=-Wall -Werror -ansi -pedantic
 
-$(EXEC): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(EXEC)
+all:
+	$(CC) $(CFLAGS) main.cpp -o rshell
 
-%.o: %.cpp
-	$(CC) -c $(CC_FLAGS) $< -o $@
+rshell:
+	$(CC) $(CFLAGS) main.cpp
 
 clean:
-	rm -f $(EXEC) $(OBJECTS)
+	rm rshell
+	
+	
