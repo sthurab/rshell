@@ -1,4 +1,7 @@
 #tests for the test command
 
+test -e orOp.cpp
 
-test 1
+test -f orOp.cpp
+
+test -d orOp.cpp
