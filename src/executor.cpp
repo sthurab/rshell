@@ -34,7 +34,7 @@ void executor::exec() {
     char* run_cmd = cmd_rip[0];
     cmd_ar[cmd_rip.size()] = NULL;
 	// left bracket
-    if (string(run_cmd) == "main" || string(run_cmd) == "[" ) {
+    if (string(run_cmd) == "test" || string(run_cmd) == "[" ) {
         test_cmd* cmd1_test = new test_cmd(cmd_rip);
         cmd1_test->exec();
         status = cmd1_test->cmd_stat();
