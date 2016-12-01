@@ -2,12 +2,13 @@ CC=g++
 CC_FLAGS=-Wall -Werror -ansi -pedantic
 
 all:
-	$(CC) $(CFLAGS) main.cpp -o rshell
+	mkdir -p ./bin	
+	$(CC) $(CFLAGS) ./src/main.cpp -o ./bin/rshell
 
 rshell:
 	$(CC) $(CFLAGS) main.cpp
 
 clean:
-	rm rshell
+	rm -rf bin
 	
 	
