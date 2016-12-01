@@ -6,7 +6,7 @@ all:
 	$(CC) $(CFLAGS) ./src/main.cpp -o ./bin/rshell
 
 rshell:
-	$(CC) $(CFLAGS) main.cpp
+	$(CC) $(CFLAGS) ./src/main.cpp
 
 clean:
 	rm -rf bin
