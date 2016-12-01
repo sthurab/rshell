@@ -9,6 +9,7 @@
 #include <vector>
 #include <sys/wait.h>
 
+#include "cd.cpp" // updated for hw4
 #include "executor.h"
 #include "testor.cpp" //
 using namespace std;
@@ -40,6 +41,16 @@ void executor::exec() {
         status = cmd1_test->cmd_stat();
         return;
     }
+
+	// updated for hw4
+	if(string(run_cmd) == "cd") {
+		cd* ceedee = new cd(cmd_rip);
+		ceedee->exec();
+		status = ceedee->cmd_stat();
+		return;
+	} 
+	// end of update for hw4
+
     int pipe_stat[2];
     status = 0;
     pipe(pipe_stat);
